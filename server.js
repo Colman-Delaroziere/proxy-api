@@ -29,6 +29,10 @@ class App {
       res.status(404).sendFile(path.join(__dirname, "/public/404.html"));
     }); */
 
+    this.app.get("/", function (req, res) {
+      res.sendFile(path.join(__dirname, "/public/index.html"));
+    });
+
     // show server
     this.app.listen(this.#port, () => {
       console.log(`Server listening on port ${this.#port}. \n`);
