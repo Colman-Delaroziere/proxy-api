@@ -17,7 +17,7 @@ class App {
 
     // create server
     this.unblocker = new Unblocker({
-      prefix: "/",
+      prefix: "/proxy/",
     });
     this.app.use(this.unblocker);
     this.app.use(cors());
@@ -25,9 +25,9 @@ class App {
     // serve js files and index.html to the server
     this.app.use(express.static(path.join(__dirname, "/public")));
 
-    /* this.app.use(function (_, res) {
+    this.app.use(function (_, res) {
       res.status(404).sendFile(path.join(__dirname, "/public/404.html"));
-    }); */
+    });
 
     this.app.get("/", function (req, res) {
       res.sendFile(path.join(__dirname, "/public/index.html"));
