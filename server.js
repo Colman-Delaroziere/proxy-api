@@ -25,9 +25,9 @@ class App {
     // serve js files and index.html to the server
     this.app.use(express.static(path.join(__dirname, "/public")));
 
-    this.app.use(function (_, res) {
+    /* this.app.use(function (_, res) {
       res.status(404).sendFile(path.join(__dirname, "/public/404.html"));
-    });
+    }); */
 
     // show server
     this.app.listen(this.#port, () => {
